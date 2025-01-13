@@ -1,5 +1,9 @@
+import { useAppContextHook } from "./context/AppContext.jsx"
 
 function App() {
+
+  const { data } = useAppContextHook();
+  console.log(data, "dataaa....");
 
   return (
     <>

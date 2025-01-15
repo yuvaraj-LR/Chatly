@@ -14,3 +14,15 @@
   --var-text-secondary: #ccc;
 }
 
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex_center {
+  justify-content: center;
+  align-items: center;
+}

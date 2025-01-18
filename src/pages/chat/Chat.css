@@ -1,0 +1,24 @@
+.chat_container {
+    max-width: 1400px;
+    width: 100%;
+    margin: auto;
+    height: 100vh;
+}
+
+.chat_wrapper {
+    height: 800px;
+    width: 100%;
+    display: grid;
+}
+
+@media (min-width: 1024px) {
+
+    .chat_container {
+        display: flex;
+        align-items: center;
+    }
+
+    .chat_wrapper {
+        grid-template-columns: minmax(300px, 25%) 1fr minmax(300px, 25%);
+    }
+}

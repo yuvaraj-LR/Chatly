@@ -10,6 +10,7 @@
 :root {
   --var-primary-color: #4285F4;
   --var-secondary-color: #AFCBF9;
+  --var-third-color: #1C274C;
   --var-text-primary: #1b1b1b;
   --var-text-secondary: #ccc;
 }
@@ -25,4 +26,8 @@
 .flex_center {
   justify-content: center;
   align-items: center;
+}
+
+.flex_space_between {
+  justify-content: space-between;
 }

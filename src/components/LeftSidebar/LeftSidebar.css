@@ -1,0 +1,125 @@
+.leftSidebar_container {
+    background-color: var(--var-third-color);
+    color: var(--var-text-secondary);
+    width: 100%;
+}
+
+.leftSidebar_title {
+    padding: 20px 16px;
+    align-items: center;
+}
+
+.chat_box {
+    padding: 0 10px;
+}
+
+.chat_box::-webkit-scrollbar {
+    width: 4px;
+}
+
+.chat_box::-webkit-scrollbar-track {
+    background: var(--var-third-color); 
+}
+
+.chat_box::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+.chat_box::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.chat_logo {
+    width: 180px;
+    margin: 0;
+}
+
+.menu {
+    width: 30px;
+}
+
+.menu_div {
+    position: relative;
+}
+
+.menu_div > img {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.menu_div > img:hover {
+    border: 1px solid var(--var-secondary-color);
+}
+
+.menu_list {
+    position: absolute;
+    width: 150px;
+    margin: auto;
+    right: 0;
+    z-index: 5;
+    background-color: var(--var-third-color);
+    border-radius: 5px;
+}
+
+.menu_option {
+    padding: 16px 10px;
+    border: 1px solid #797979;
+    cursor: pointer;
+    color: var(--var-text-secondary);
+    text-decoration: none;
+}
+
+.menu_option:hover {
+    background-color: #041238;
+}
+
+.search {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 0 16px;
+}
+
+.search > img {
+    position: absolute;
+    left: 20px;
+    top: 4px;
+}
+
+.search_inp {
+    width: 100%;
+    padding: 10px 10px 10px 45px;
+    border: 1px solid var(--var-text-secondary);
+    border-radius: 4px;
+    background-color: var(--var-secondary-color);
+    color: var(--var-text-primary);
+    font-weight: 500;
+}
+
+.chat {
+    align-items: center;
+    gap: 16px;
+    border-top: 1px solid #797979;
+    border-bottom: 1px solid #797979;
+    padding: 16px 10px;
+    cursor: pointer;
+}
+
+.chat:hover {
+    border-radius: 5px;
+    background-color: #041238;
+}
+
+.user_img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-position: center;
+}
+
+@media (min-width: 1200px) {
+    .chat_box {
+        height: 580px;
+        overflow-y: scroll;
+    }
+}

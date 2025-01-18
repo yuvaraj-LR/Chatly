@@ -13,22 +13,6 @@
     padding: 0 10px;
 }
 
-.chat_box::-webkit-scrollbar {
-    width: 4px;
-}
-
-.chat_box::-webkit-scrollbar-track {
-    background: var(--var-third-color); 
-}
-
-.chat_box::-webkit-scrollbar-thumb {
-    background: #888; 
-}
-
-.chat_box::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-}
-
 .chat_logo {
     width: 180px;
     margin: 0;
@@ -119,7 +103,7 @@
 
 @media (min-width: 1200px) {
     .chat_box {
-        height: 580px;
+        height: 640px;
         overflow-y: scroll;
     }
 }

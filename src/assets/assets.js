@@ -8,6 +8,7 @@ import Men1 from "./users/men-1.jpg";
 import Men2 from "./users/men-2.jpg";
 import HamburgerMenu from "./chat/hamburger.svg";
 import Search from "./chat/search.svg";
+import Logout from "./chat/logout.svg";
 
 const assest = {
     Logo,
@@ -19,7 +20,8 @@ const assest = {
     Men1,
     Men2,
     HamburgerMenu,
-    Search
+    Search,
+    Logout
 }
 
 export default assest;

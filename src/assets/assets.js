@@ -9,6 +9,8 @@ import Men2 from "./users/men-2.jpg";
 import HamburgerMenu from "./chat/hamburger.svg";
 import Search from "./chat/search.svg";
 import Logout from "./chat/logout.svg";
+import Gallery from "./chat/gallery.svg";
+import SendButton from "./chat/send_btn.svg";
 
 const assest = {
     Logo,
@@ -21,7 +23,9 @@ const assest = {
     Men2,
     HamburgerMenu,
     Search,
-    Logout
+    Logout,
+    Gallery,
+    SendButton
 }
 
 export default assest;

@@ -15,6 +15,10 @@
     display: none;
 } 
 
+.chat_bar {
+    background-color: #f1f1f1;
+}
+
 @media (min-width: 1024px) {
 
     .chat_container {
@@ -23,7 +27,7 @@
     }
 
     .chat_bar, .right_sidebar {
-        display: flex;
+        display: block;
     } 
 
     .chat_wrapper {

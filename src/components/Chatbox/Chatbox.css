@@ -48,7 +48,7 @@
     color: var(--var-text-primary);
 }
 
-.chatbox_chats {
+.chatbox_chats_container {
     width: 100%;
     height: 650px;
     overflow-y: scroll;
@@ -85,7 +85,7 @@
     margin: 10px 0;
 }
 
-.chat_text {
+.my_chat_text {
     max-width: 600px;
     background-color: var(--var-primary-color);
     color: #1b1b1b;
@@ -94,4 +94,20 @@
     margin: 0 10px 5px 0;
     font-size: 16px;
     font-weight: 400;
+}
+
+.their_chat_text {
+    max-width: 600px;
+    background-color: var(--var-secondary-color);
+    color: #1b1b1b;
+    padding: 10px;
+    border-radius: 10px 10px 10px 0;
+    margin: 0 0 5px 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.chats_box_div {
+    width: 100%;
+    padding-inline: 10px;
 }

@@ -42,12 +42,15 @@ const Chatbox = () => {
             <h2 className='chat_profile_name'>Amelia</h2>
           </div>
 
-          <div className="chatbox_chats">
+          <div className="chatbox_chats_container">
             <div className="chats_box_div">
-              <div className="flex my_chat chatbox_chats">
-                <p className="chat_text">Hello, Yuvaraj!Hello, Yuvaraj!Hello, Yuvaraj!Hello, Yuvaraj!Hello, Yuvaraj!Hello, Yuvaraj</p>
-                <p className="time">12:52 PM</p>
-              </div> 
+
+              {chatData.map((chat, i) => (
+                <div key={i} className={`flex ${chat.sid == "me" ? "my_chat" : "their_chat"} chatbox_chats`}>
+                  <p className={`${chat.sid == "me" ? "my_chat_text" : "their_chat_text"}`}>{chat.msg}</p>
+                  <p className="time">{chat.timeStamp}</p>
+                </div> 
+              ))}
             </div>
           </div>
         </div>

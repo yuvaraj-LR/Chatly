@@ -188,7 +188,14 @@
     align-items: center;
     border: 1px solid #ccc;
     flex-direction: column-reverse;
+}
 
+.profile_img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    background-position: center;
+    object-fit: cover;
 }
 
 @media (min-width: 768px) {

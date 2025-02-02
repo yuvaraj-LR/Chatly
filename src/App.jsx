@@ -10,17 +10,21 @@ import AuthLayout from "./components/AuthLayout/AuthLayout"
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./config/firebase";
+import { useAppContextHook } from "./context/AppContext";
 
 function App() {
 
   const navigator = useNavigate();
 
+  const { loadUserData } = useAppContextHook();
+
   useEffect(() => {
     onAuthStateChanged(auth, async(user) => {
-      console.log(user, "userr...");
-
       if(user) {
         // Load the user data and chat information in context API.
+        // await loadUserData()
+        loadUserData(user.uid)
+        
         navigator("/")
         
       } else {

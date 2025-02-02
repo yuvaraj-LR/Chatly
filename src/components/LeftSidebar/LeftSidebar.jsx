@@ -67,7 +67,7 @@ const LeftSidebar = () => {
       <div className="flex flex_space_between leftSidebar_title">
         <img src={assest.Logo} alt="logo" className='chat_logo'/>
 
-        <span classname="menu_div">
+        <span className="menu_div">
           <img src={assest.HamburgerMenu} alt="hamburgerMenu" className='menu' id='menu' onClick={() => setMenu(!menu)} />
 
           <div className={menu ? "menu_list" : "hidden"}>

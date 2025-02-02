@@ -70,7 +70,7 @@
     align-content: flex-start;
     align-items: flex-start;
     padding: 0 12px;
-    height: 350px;
+    /* height: 350px; */
     overflow-y: scroll;
 }
 

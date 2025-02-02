@@ -1,11 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import RightSidebar from '../../components/RightSidebar/RightSidebar'
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
 import Chatbox from '../../components/Chatbox/Chatbox'
 
+import { onAuthStateChanged } from "firebase/auth";
+
 import "./Chat.css"
+import { auth } from '../../config/firebase';
+import { useNavigate } from 'react-router';
 
 const Chat = () => {
+  const navigator = useNavigate();
+
+  // useEffect(()=>{
+  //   onAuthStateChanged(auth, async(user) => {
+  //     console.log(user, "userr...");
+
+  //     if(user) {
+  //       // Load the user data and chat information in context API.
+        
+  //     } else {
+  //       navigator("/")
+  //     }
+  //   })
+  // }, [])
+
   return (
     <div className='chat_container'>
       <div className="chat_wrapper">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Signin.css'; 
 import assest from '../../../assets/assets';
+import { signIn } from '../../../config/firebase';
 
 const Signin = () => {
   const [emailError, setEmailError] = useState(false);
@@ -16,6 +17,9 @@ const Signin = () => {
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    signIn(data.get('email'), data.get('password'));
+
   };
 
   const validateInputs = () => {

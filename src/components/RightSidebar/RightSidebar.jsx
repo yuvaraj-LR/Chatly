@@ -2,6 +2,7 @@ import React from 'react'
 import assest from '../../assets/assets'
 
 import "./RightSidebar.css"
+import { logout } from '../../config/firebase'
 
 const RightSidebar = () => {
 
@@ -39,7 +40,7 @@ const RightSidebar = () => {
         </div>
       </div>
     
-      <button className="logout_btn">
+      <button className="logout_btn" onClick={logout}>
         <img src={assest.Logout} alt="logout" className='logout' />
         Logout
       </button>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Signup.css'; 
 import assest from '../../../assets/assets';
+import { toast } from 'react-toastify';
+import { signUp } from '../../../config/firebase';
 
 const Signin = () => {
   const [nameError, setNameError] = useState(false);
@@ -14,11 +16,15 @@ const Signin = () => {
     event.preventDefault();
     if (!validateInputs()) return;
     const data = new FormData(event.currentTarget);
+
     console.log({
       name: data.get('name'),
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    signUp(data.get('name'), data.get('email'), data.get('password'));
+
   };
 
   const validateInputs = () => {

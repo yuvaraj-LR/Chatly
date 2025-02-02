@@ -5,6 +5,7 @@ import { useState } from 'react';
 import assest from '../../assets/assets';
 
 import "./LeftSidebar.css";
+import { logout } from '../../config/firebase';
 
 const LeftSidebar = () => {
 
@@ -66,7 +67,7 @@ const LeftSidebar = () => {
       <div className="flex flex_space_between leftSidebar_title">
         <img src={assest.Logo} alt="logo" className='chat_logo'/>
 
-        <span class="menu_div">
+        <span classname="menu_div">
           <img src={assest.HamburgerMenu} alt="hamburgerMenu" className='menu' id='menu' onClick={() => setMenu(!menu)} />
 
           <div className={menu ? "menu_list" : "hidden"}>
@@ -75,7 +76,7 @@ const LeftSidebar = () => {
                   Edit Profile
               </p>
             </Link>
-            <p className="menu_option">Logout</p>
+            <p className="menu_option" onClick={logout}>Logout</p>
           </div>
         </span>
       </div>

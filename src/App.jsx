@@ -23,12 +23,16 @@ function App() {
       if(user) {
         // Load the user data and chat information in context API.
         // await loadUserData()
-        loadUserData(user.uid)
-        
-        navigator("/")
-        
+        await loadUserData(user.uid);
+        if (window.location.pathname == "/") {
+          navigator("/")
+        }
       } else {
-        navigator("/login/signin")
+        if(window.location.pathname == "/login/signup") {
+          navigator("/login/signup")
+        } else {
+          navigator("/login/signin")
+        }
       }
     })
   }, [])

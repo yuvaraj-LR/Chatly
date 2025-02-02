@@ -1,5 +1,5 @@
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { createContext, useContext, useState } from "react";
+import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
+import { createContext, useContext, useEffect, useState } from "react";
 import { db } from "../config/firebase";
 import { useNavigate } from "react-router";
 
@@ -23,13 +23,51 @@ const AppContext = ({ children }) => {
         const userData = userSnap.data();
         console.log(userData, "userDataa...");
         
+        setUserData(userData);
+
         if (userData.name && userData.avatar) {
-            setUserData(userData)
             navigator("/");
         } else {
             navigator("/profile");
         }
+
+        await updateDoc(userRef, {
+            lastseen: Date.now()
+        })
+
+        setInterval(async () => {
+            if (auth.chatUser) {
+                await updateDoc(userRef, {
+                    lastseen: Date.now()
+                })
+            }
+        }, 60000);
     }
+
+    useEffect(() => {
+        if (userData) {
+            const chatRef = doc(db, "chats", userData.id);            
+
+            const unSub = onSnapshot(chatRef, async (doc) => {
+                const chatData = doc.data().chatData;
+                const tempChatData = [];
+
+                for(const item of chatData) {
+                    const userRef = doc(db, "users", item.rId);
+                    const userSnap = await getDoc(userRef);
+                    const userData = userSnap.data();
+                    tempChatData.push(userData);
+                }
+                console.log("I am the problem");
+                
+                setChatData(tempChatData.sort((a, b) => b.updatedAt - a.updateAt));
+            })
+
+            return () => {
+                unSub();
+            }
+        }
+    }, [userData])
 
     const handleProfileSubmit = async(id, avatar, name, bio) => {
         // console.log(avatar, name, bio, "details");
@@ -45,9 +83,7 @@ const AppContext = ({ children }) => {
 
         setUserData(userData)
 
-        if (updateUserProfile) {
-            navigator("/")
-        }
+        navigator("/")
     }
 
     const value = { 

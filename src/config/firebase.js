@@ -30,10 +30,7 @@ const signUp = async(username, email, password) => {
   
   try {
     const credentials = await createUserWithEmailAndPassword(auth, email, password);
-    console.log(credentials, "credentialscredentials");
-    
     const user = credentials.user;
-    console.log(user, "userUserr");
 
     // Storing data to user's DB.
     await setDoc(doc(db, "users", user.uid), {

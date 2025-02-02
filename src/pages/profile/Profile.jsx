@@ -6,10 +6,6 @@ import { useAppContextHook } from '../../context/AppContext';
 const Profile = () => {
 
   const { userData, handleProfileSubmit } = useAppContextHook();
-
-  console.log(userData, "userDataa...");
-  
-
   const { id, avatar, name, bio } = userData;
 
   const [avatarState, setAvatarState] = useState(avatar);

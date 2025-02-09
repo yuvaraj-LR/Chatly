@@ -1,6 +1,6 @@
 import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
-import { db } from "../config/firebase";
+import { auth, db } from "../config/firebase";
 import { useNavigate } from "react-router";
 
 const appContext = createContext();
@@ -47,27 +47,29 @@ const AppContext = ({ children }) => {
     useEffect(() => {
         if (userData) {
             const chatRef = doc(db, "chats", userData.id);            
-
-            const unSub = onSnapshot(chatRef, async (doc) => {
-                const chatData = doc.data().chatData;
+    
+            const unSub = onSnapshot(chatRef, async (docSnap) => {
+                if (!docSnap.exists()) return;
+    
+                const chatData = docSnap.data().chatData || [];
                 const tempChatData = [];
-
-                for(const item of chatData) {
+    
+                // Use Promise.all to resolve all getDoc() calls concurrently
+                const userPromises = chatData.map(async (item) => {
                     const userRef = doc(db, "users", item.rId);
                     const userSnap = await getDoc(userRef);
-                    const userData = userSnap.data();
-                    tempChatData.push(userData);
-                }
-                console.log("I am the problem");
-                
-                setChatData(tempChatData.sort((a, b) => b.updatedAt - a.updateAt));
-            })
-
-            return () => {
-                unSub();
-            }
+                    return userSnap.exists() ? userSnap.data() : null;
+                });
+    
+                const resolvedChatData = (await Promise.all(userPromises)).filter(user => user !== null);
+    
+                setChatData(resolvedChatData.sort((a, b) => b.updatedAt - a.updatedAt));
+            });
+    
+            return () => unSub();
         }
-    }, [userData])
+    }, [userData]);
+    
 
     const handleProfileSubmit = async(id, avatar, name, bio) => {
         // console.log(avatar, name, bio, "details");

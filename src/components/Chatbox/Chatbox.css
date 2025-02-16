@@ -111,3 +111,28 @@
     width: 100%;
     padding-inline: 10px;
 }
+
+.chatbox_empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.chatbox_logo {
+    width: 200px;
+}
+
+.chatbox_empty p {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: #888;
+}
+
+.green_dot {
+    width: 40px;
+    margin-left: -20px;
+    margin-top: 8px;
+}

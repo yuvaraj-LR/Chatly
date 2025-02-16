@@ -11,8 +11,8 @@ import { db, logout } from '../../config/firebase';
 import { useAppContextHook } from '../../context/AppContext';
 
 const LeftSidebar = () => {
-  const { userData, chatData } = useAppContextHook();
-
+  const { userData, chatData, setMessageId, setChatUser } = useAppContextHook();
+  
   const [menu, setMenu] = useState(false);
   const [user, setUser] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
@@ -109,7 +109,8 @@ const LeftSidebar = () => {
   
   const loadUserChat = async (item) => {
     console.log(item, "itemmm....");
-    
+    setMessageId(item.id);
+    setChatUser(item);
   };
 
   return (

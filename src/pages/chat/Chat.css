@@ -22,6 +22,12 @@
 .spinner {
     margin: auto;
 }
+.spinner h3 {
+    margin-inline: 16px;
+    font-weight: 400;
+    font-size: 30px;
+    color: var(--var-third-color);
+}
 
 @media (min-width: 1024px) {
 

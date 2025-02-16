@@ -14,6 +14,9 @@ const AppContext = ({ children }) => {
 
     const [userData, setUserData] = useState(null);
     const [chatData, setChatData] = useState(null);
+    const [message, setMessage] = useState([]);
+    const [messageId, setMessageId] = useState(null);
+    const [chatUser, setChatUser] = useState(null);
 
     const navigator = useNavigate();
 
@@ -89,7 +92,7 @@ const AppContext = ({ children }) => {
     }
 
     const value = { 
-        userData, setUserData, chatData, setChatData, loadUserData, handleProfileSubmit
+        userData, setUserData, chatData, setChatData, loadUserData, handleProfileSubmit, message, setMessage, messageId, setMessageId, chatUser, setChatUser
     }
 
     return (

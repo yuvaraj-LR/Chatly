@@ -11,6 +11,7 @@ import Search from "./chat/search.svg";
 import Logout from "./chat/logout.svg";
 import Gallery from "./chat/gallery.svg";
 import SendButton from "./chat/send_btn.svg";
+import GreenDot from "./chat/green-dot.svg";
 
 const assest = {
     Logo,
@@ -25,7 +26,8 @@ const assest = {
     Search,
     Logout,
     Gallery,
-    SendButton
+    SendButton,
+    GreenDot
 }
 
 export default assest;

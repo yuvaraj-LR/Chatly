@@ -17,14 +17,17 @@ const Chat = () => {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    setLoader(false);
+    if(userData && chatData) {
+      setLoader(false);
+    }
   }, [userData, chatData])
 
   return (
     <div className='chat_container'>
       {
         loader ?
-          <span className='spinner'>
+          <span className='flex flex_center flex_gap_10 spinner'>
+            <h3>Loading...</h3>
             <FadeLoader
               color="#1C274C"
               size="150"
